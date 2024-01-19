@@ -4,14 +4,22 @@ on:
     issues:
         types: [opened]
 
+permissions:
+  contents: read
+
 jobs:
     auto-assign:
         runs-on: ubuntu-latest
         permissions:
             issues: write
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+              with:
+                egress-policy: audit
+
             - name: 'Auto-assign issue'
-              uses: pozil/auto-assign-issue@v1
+              uses: pozil/auto-assign-issue@03db3dd9bff76ac6a32381d7d5e53814b5f70b2e # v1
               with:
                   assignees: ashishkurmi
                   numOfAssignee: 1
