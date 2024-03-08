@@ -1,0 +1,8 @@
+name: Compliant build workflow - Docker
+
+on:
+  workflow_dispatch
+
+jobs:
+  call-workflow:
+    uses: actions-security-demo/reusable-workflows/.github/workflows/build.yml@main
