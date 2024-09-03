@@ -49,3 +49,11 @@ jobs:
           skip_after_successful_duplicate: 'true'
           paths_ignore: '["**/README.md", "**/docs/**"]'
           do_not_skip: '["pull_request", "workflow_dispatch", "schedule"]'
+
+      - uses: nick-fields/retry@v3
+        continue-on-error: true
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          shell: pwsh
+          command: dir
