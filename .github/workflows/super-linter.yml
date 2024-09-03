@@ -34,3 +34,6 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
