@@ -21,6 +21,13 @@ jobs:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'src/**'
+      
       - name: Lint Code Base
         uses: github/super-linter@v4
         env:
