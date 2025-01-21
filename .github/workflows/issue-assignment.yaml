@@ -11,7 +11,7 @@ jobs:
             issues: write
         steps:
             - name: 'Auto-assign issue'
-              uses: pozil/auto-assign-issue@v1
+              uses: pozil/auto-assign-issue@e0a56afd8846954587b00fff254caf1ec918554e # v1
               with:
                   assignees: ashishkurmi
                   numOfAssignee: 1
