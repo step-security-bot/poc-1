@@ -1,3 +1,4 @@
+name: Pwn Request
 on:
   pull_request_target:
 
@@ -12,6 +13,11 @@ jobs:
 
     - uses: actions/setup-node@v1
     - run: |
+        npm install
+        npm build
+
+    - run: |
+        echo "${{ github.event.pull_request.title }}" 
         npm install
         npm build
    
