@@ -16,8 +16,4 @@ jobs:
         npm install
         npm build
 
-    - run: |
-        echo "${{ github.event.pull_request.title }}" 
-        npm install
-        npm build
-   
+    
