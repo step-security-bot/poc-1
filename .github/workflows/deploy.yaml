@@ -1,0 +1,20 @@
+name: Deploy to AWS
+on: 
+  workflow_dispatch:
+  
+jobs:
+  publish:
+    name: Deploy to AWS
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read      
+    steps:  
+        - name: Checkout
+          uses: actions/checkout@v2    
+        - name: Retry Logic
+          uses: nick-fields/retry@v3
+          with:
+            timeout_minutes: 10
+            max_attempts: 3
+            shell: pwsh
+            command: dir
