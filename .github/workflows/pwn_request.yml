@@ -2,11 +2,19 @@ name: Pwn Request
 on:
   pull_request_target:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Build and test
     runs-on: ubuntu-latest
     steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@v2.11.0
+      with:
+        egress-policy: audit
+
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
